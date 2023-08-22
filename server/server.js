@@ -10,7 +10,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 app.use(morgan('tiny'));
-app.disable('x-powered-by'); // less hackers know about our stack
+app.disable('x-powered-by');
 
 
 const port = 8080;

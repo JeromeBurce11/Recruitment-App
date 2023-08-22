@@ -17,9 +17,9 @@ export default function Register() {
 
   const formik = useFormik({
     initialValues : {
-      email: 'doyol56239@cnogs.com',
-      username: 'example123',
-      password : 'admin@123'
+      email: 'jeromeburce666@gmail.com',
+      username: 'jeromeburce666',
+      password : 'Merry@j0c'
     },
     validate : registerValidation,
     validateOnBlur: false,
@@ -27,17 +27,20 @@ export default function Register() {
     onSubmit : async values => {
       values = await Object.assign(values, { profile : file || ''})
       let registerPromise = registerUser(values)
+      console.log("REEGISTERPROMISEE::  ", registerPromise);
+      
       toast.promise(registerPromise, {
         loading: 'Creating...',
         success : <b>Register Successfully...!</b>,
-        error : <b>Could not Register.</b>
+        error : (err)=> {console.log("CUTE: ", err);
+        return <b>{err.error_message.error}</b>
+        }
       });
 
       registerPromise.then(function(){ navigate('/')});
     }
   })
 
-  /** formik doensn't support file upload so we need to create this handler */
   const onUpload = async e => {
     const base64 = await convertToBase64(e.target.files[0]);
     setFile(base64);

@@ -10,6 +10,9 @@ import Profile from './components/Profile';
 import Recovery from './components/Recovery';
 import Reset from './components/Reset';
 import PageNotFound from './components/PageNotFound';
+import Applicant  from './components/Applicant';
+import AddApplicant from  './components/AddApplicant';
+import EditApplicant from './components/EditApplicant';
 
 
 /** auth middleware */
@@ -20,6 +23,18 @@ const router = createBrowserRouter([
     {
         path : '/',
         element : <Username></Username>
+    },
+    {
+        path : '/applicant',
+        element : <Applicant></Applicant>
+    },
+    {
+        path : '/add-applicant',
+        element : <AddApplicant></AddApplicant>
+    },
+    {
+        path : '/applicant/:id',
+        element : <EditApplicant></EditApplicant>
     },
     {
         path : '/register',

@@ -34,7 +34,7 @@ export default function Password() {
       loginPromise.then(res => {
         let { token } = res.data;
         localStorage.setItem('token', token);
-        navigate('/profile')
+        navigate('/Applicant')
       })
     }
   })
@@ -53,7 +53,7 @@ export default function Password() {
           <div className="title flex flex-col items-center">
             <h4 className='text-5xl font-bold'>Hello {apiData?.firstName || apiData?.username}</h4>
             <span className='py-4 text-xl w-2/3 text-center text-gray-500'>
-              Explore More by connecting with us.
+              Please enter your password.
             </span>
           </div>
 
@@ -68,7 +68,7 @@ export default function Password() {
               </div>
 
               <div className="text-center py-4">
-                <span className='text-gray-500'>Forgot Password? <Link className='text-red-500' to="/recovery">Recover Now</Link></span>
+                <span className='text-gray-500'>Forgot Password? <Link className='text-red-500' to="/recovery">Click Here</Link></span>
               </div>
 
           </form>

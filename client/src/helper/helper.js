@@ -1,7 +1,8 @@
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 
-axios.defaults.baseURL = process.env.REACT_APP_SERVER_DOMAIN;
+// axios.defaults.baseURL = process.env.REACT_APP_SERVER_DOMAIN;
+axios.defaults.baseURL = "http://localhost:8080"; 
 
 
 /** Make API Requests */
@@ -38,17 +39,12 @@ export async function getUser({ username }){
 export async function registerUser(credentials){
     try {
         const { data : { msg }, status } = await axios.post(`/api/register`, credentials);
-
-        let { username, email } = credentials;
-
-        /** send email */
-        if(status === 201){
-            await axios.post('/api/registerMail', { username, userEmail : email, text : msg})
-        }
-
+        console.log("MESSAGE : ", msg);
         return Promise.resolve(msg)
     } catch (error) {
-        return Promise.reject({ error })
+        console.log("MESSAGE error : ", error);
+
+        return Promise.reject({ error_message : error.response.data.error})
     }
 }
 
@@ -113,3 +109,64 @@ export async function resetPassword({ username, password }){
         return Promise.reject({ error })
     }
 }
+
+
+export async function getAllApplicant(){
+    try {
+        const { data, status } = await axios.get('/api/all-applicants' );
+
+        return Promise.resolve({ data, status})
+    } catch (error) {
+        return Promise.reject({ error })
+    }
+}
+
+export async function addApplicant(details){
+    try {
+
+        const { data, status } = await axios.post('/api/applicant', details );
+
+        return Promise.resolve({ data, status})
+    } catch (error) {
+        return Promise.reject({ error })
+    }
+}
+
+export async function getApplicantDetailsById({ id }){
+    try {
+        const { data } = await axios.get(`/api/applicant/${id}`);
+        return { data };
+    } catch (error) {
+        return { error : "Password doesn't Match...!"}
+    }
+}
+
+export async function updateApplicant(details){
+    try {
+
+        const { data, status } = await axios.put('/api/update/applicant', details );
+        console.log("HELPPERRR Data getapplicant id :", data);
+
+        return Promise.resolve({ data, status})
+    } catch (error) {
+        return Promise.reject({ error })
+    }
+}
+
+
+export async function deleteApplicant({id}){
+    try {
+        console.log("ID : ",id);
+        const { data, status } = await axios.delete(`/api/delete/applicant/${id}`);
+        console.log("DATA DELETE :", data);
+
+        return Promise.resolve({ data, status})
+    } catch (error) {
+        return Promise.reject({ error })
+    }
+}
+
+
+
+
+
