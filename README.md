@@ -20,7 +20,7 @@ After the login you will view the list of applicants / or no data. Please create
 After that create a file in the Server Folder with the name config.js and put the below code inside it.
 Upon inputting the value of status make sure you follow the correct format to view the status nicely. It is for further development too.
 
-add a config.js
+add a "config.js" file in server folder upon running the backend
 
 config.js
 ```
@@ -32,5 +32,20 @@ export default{
     ATLAS_URI:"mongodb+srv://admin:admin123@cluster0.bux5k27.mongodb.net/?retryWrites=true&w=majority"
 }
 ```
+
+install the following:
+
+Frontend:
+npm install @mui/material @emotion/react @emotion/styled
+npm install @mui/icons-material @mui/material @emotion/styled @emotion/react
+
+npm i zustand
+npm install axios --save
+npm i jsonwebtoken      
+npm install mongodb    
+npm i bcrypt  
+
+upon running the backend install this:
+npm i express cors mongoose mongodb-memory-server multer nodemon
 
 
