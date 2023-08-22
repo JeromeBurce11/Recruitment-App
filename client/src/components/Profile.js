@@ -15,29 +15,20 @@ export default function Profile() {
 
   const [file, setFile] = useState();
   const [{ isLoading, apiData, serverError }] = useFetch();
+  console.log("apiData :", apiData);
   const navigate = useNavigate()
  
   const formik = useFormik({
     initialValues : {
-      firstName : apiData?.firstName || '',
-      lastName: apiData?.lastName || '',
       email: apiData?.email || '',
-      mobile: apiData?.mobile || '',
-      address : apiData?.address || ''
+      profile: apiData?.profile || '',
+      username : apiData?.username ||''
     },
     enableReinitialize: true,
     validate : profileValidation,
     validateOnBlur: false,
     validateOnChange: false,
     onSubmit : async values => {
-      values = await Object.assign(values, { profile : file || apiData?.profile || ''})
-      let updatePromise = updateUser(values);
-
-      toast.promise(updatePromise, {
-        loading: 'Updating...',
-        success : <b>Update Successfully...!</b>,
-        error: <b>Could not Update!</b>
-      });
 
     }
   })
@@ -48,11 +39,10 @@ export default function Profile() {
     setFile(base64);
   }
 
-  // logout handler function
-  function userLogout(){
-    localStorage.removeItem('token');
-    navigate('/')
+  const handleBack =()=>{
+    navigate('/applicant')
   }
+
 
   if(isLoading) return <h1 className='text-2xl font-bold'>isLoading</h1>;
   if(serverError) return <h1 className='text-xl text-red-500'>{serverError.message}</h1>
@@ -68,7 +58,7 @@ export default function Profile() {
           <div className="title flex flex-col items-center">
             <h4 className='text-5xl font-bold'>Profile</h4>
             <span className='py-4 text-xl w-2/3 text-center text-gray-500'>
-                You can update the details.
+                Profile details
             </span>
           </div>
 
@@ -82,25 +72,13 @@ export default function Profile() {
               </div>
 
               <div className="textbox flex flex-col items-center gap-6">
-                <div className="name flex w-3/4 gap-10">
-                  <input {...formik.getFieldProps('firstName')} className={`${styles.textbox} ${extend.textbox}`} type="text" placeholder='FirstName' />
-                  <input {...formik.getFieldProps('lastName')} className={`${styles.textbox} ${extend.textbox}`} type="text" placeholder='LastName' />
-                </div>
+                  <input {...formik.getFieldProps('username')} className={`${styles.textbox} ${extend.textbox}`} type="text" placeholder='Username' />
 
-                <div className="name flex w-3/4 gap-10">
-                  <input {...formik.getFieldProps('mobile')} className={`${styles.textbox} ${extend.textbox}`} type="text" placeholder='Mobile No.' />
                   <input {...formik.getFieldProps('email')} className={`${styles.textbox} ${extend.textbox}`} type="text" placeholder='Email*' />
-                </div>
 
                
-                  <input {...formik.getFieldProps('address')} className={`${styles.textbox} ${extend.textbox}`} type="text" placeholder='Address' />
-                  <button className={styles.btn} type='submit'>Update</button>
+                  <button className={styles.btn} onClick={handleBack}>Back to Dashboard</button>
                
-                  
-              </div>
-
-              <div className="text-center py-4">
-                <span className='text-gray-500'>come back later? <button onClick={userLogout} className='text-red-500' to="/">Logout</button></span>
               </div>
 
           </form>

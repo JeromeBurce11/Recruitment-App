@@ -16,6 +16,17 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Divider from '@mui/material/Divider';
 import toast, { Toaster } from "react-hot-toast";
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import Menu from '@mui/material/Menu';
+import AppBar from '@mui/material/AppBar';
+import AccountCircle from '@mui/icons-material/AccountCircle';
+import MenuIcon from '@mui/icons-material/Menu';
+import Container from '@mui/material/Container';
+import Avatar from '@mui/material/Avatar';
+import Tooltip from '@mui/material/Tooltip';
+import MenuItem from '@mui/material/MenuItem';
+import AdbIcon from '@mui/icons-material/Adb';
 
 const style = {
   position: "absolute",
@@ -73,8 +84,65 @@ export default function BasicTable() {
     });
   }, []);
 
+  const [auth, setAuth] = React.useState(true);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleChange = (event) => {
+    setAuth(event.target.checked);
+  };
+
+  const handleMenu = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  function userLogout(){
+    localStorage.removeItem('token');
+    navigate('/')
+  }
+  function handleProfile(){
+    navigate('/profile')
+  }
+
+  const handleCloseAppBar = () => {
+    setAnchorEl(null);
+  };
   return (
     <>
+    <AppBar position="static">
+        <Toolbar>
+          
+            <div>
+              <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleMenu}
+                color="inherit"
+              >
+                <AccountCircle />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={Boolean(anchorEl)}
+                onClose={handleCloseAppBar}
+              >
+                <MenuItem onClick={handleProfile}>View Profile</MenuItem>
+                <MenuItem onClick={userLogout}>Logout</MenuItem>
+              </Menu>
+            </div>
+        </Toolbar>
+      </AppBar>
       <Card
         sx={{
           // maxWidth: 900,

@@ -9,7 +9,6 @@ import Register from './components/Register';
 import Profile from './components/Profile';
 import Recovery from './components/Recovery';
 import Reset from './components/Reset';
-import PageNotFound from './components/PageNotFound';
 import Applicant  from './components/Applicant';
 import AddApplicant from  './components/AddApplicant';
 import EditApplicant from './components/EditApplicant';
@@ -55,11 +54,8 @@ const router = createBrowserRouter([
     {
         path : '/reset',
         element : <Reset></Reset>
-    },
-    {
-        path : '*',
-        element : <PageNotFound></PageNotFound>
-    },
+    }
+   
 ])
 
 export default function App() {
