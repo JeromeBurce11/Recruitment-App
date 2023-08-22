@@ -8,7 +8,7 @@ where the user or admin registers and login. and do the creation of applicants, 
 REACT_APP_SERVER_DOMAIN='<server_domain>' # example 'http://localhost:8080'
 ```
 ## Upon the Registration take note: 
-That the application is verifying the valid email and username. Please input the value correct to register.
+The application is verifying the valid email and username. Please input the value correct to register.
 
 After the login you will view the list of applicants / or no data. Please create an applicate by clicking the button "create Applicant"
 
