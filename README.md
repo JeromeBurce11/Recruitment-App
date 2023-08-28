@@ -7,11 +7,10 @@ To the the project:
 FRONTEND : client under client directory =  run > npm start
 BACKEND : server under server directory =  run > npm start
 
-## Working with the Project
 ```
 REACT_APP_SERVER_DOMAIN='<server_domain>' # example 'http://localhost:8080'
 ```
-## NOTE: Upon the Registration: 
+## NOTE: Upon Registration: 
 The application is verifying the email and username. Please input the value correctly to register successfully.
 
 After the login you will view the list of applicants / or no data. Please create an applicate by clicking the button "create Applicant"
