@@ -1,4 +1,4 @@
-# Requitment App
+# Recruitment App
 This is a simple app that helps the HR department tract all of the application of the company.
 where the user or admin registers and login. and do the creation of applicants, update the status and details of the applicants, delete (CRUD), view profile and logout. 
 
