@@ -35,16 +35,20 @@ export default{
 install the following:
 
 Frontend:
+```
 npm install @mui/material @emotion/react @emotion/styled
 npm install @mui/icons-material @mui/material @emotion/styled @emotion/react
-
+```
+```
 npm i zustand
 npm install axios --save
 npm i jsonwebtoken      
 npm install mongodb    
-npm i bcrypt  
+npm i bcrypt
+```
 
 upon running the backend install this:
+```
 npm i express cors mongoose mongodb-memory-server multer nodemon
-
+```
 
