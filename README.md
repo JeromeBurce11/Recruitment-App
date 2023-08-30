@@ -1,11 +1,18 @@
 # Recruitment App
 This is a simple app that helps the HR department tract all of the application of the company.
 where the user or admin registers and login. and do the creation of applicants, update the status and details of the applicants, delete (CRUD), view profile and logout. 
-
+```
 install : npm install
+```
 To the the project:
-FRONTEND : client under client directory =  run > npm start
-BACKEND : server under server directory =  run > npm start
+FRONTEND : client under client directory =  run >
+```
+npm start
+```
+BACKEND : server under server directory =  run > 
+```
+npm start
+```
 
 ```
 REACT_APP_SERVER_DOMAIN='<server_domain>' # example 'http://localhost:8080'
