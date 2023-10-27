@@ -3,7 +3,7 @@ const router = Router();
 
 /** import all controllers */
 import * as controller from '../controllers/appController.js';
-import * as applicantController from '../controllers/applicantController.js';
+import * as employeeController from '../controllers/employeeController.js';
 import { registerMail } from '../controllers/mailer.js'
 import Auth, { localVariables } from '../middleware/auth.js';
 
@@ -27,11 +27,11 @@ router.route('/updateuser').put(Auth, controller.updateUser); // is use to updat
 router.route('/resetPassword').put(controller.verifyUser, controller.resetPassword); // use to reset password
 
 
-/** Applicant routes */
-router.route('/employee').post(applicantController.createApplicant); // create an applicant
-router.route('/all-applicants').get(applicantController.getAllApplicant); // get appplicants
-router.route('/applicant/:id').get(applicantController.getApplicantById); //get an applicantdata
-router.route('/update/applicant').put(applicantController.updateApplicant); // update uplicant
-router.route('/delete/applicant/:id').delete(applicantController.deleteApplicant) // delete aplicant
+/** Employee routes */
+router.route('/employee').post(employeeController.createEmployee); // create an employee
+router.route('/all-employees').get(employeeController.getAllEmployee); // get appplicants
+router.route('/employee/:id').get(employeeController.getEmployeeById); //get an employee data
+router.route('/update/employee').put(employeeController.updateEmployee); // update uplicant
+router.route('/delete/employee/:id').delete(employeeController.deleteEmployee) // delete aplicant
 
 export default router;
