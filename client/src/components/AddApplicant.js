@@ -28,9 +28,7 @@ export default function Profile() {
   const [lastname, setLastname] = useState('');
   const [email, setEmail] = useState('');
   const [mobile, setMobile] = useState('');
-  const [address, setAddress] = useState('');
-
-
+  const [address, setAddress] = useState(''); 
 
 
   const handleChangeStatus = (event) => {
@@ -62,7 +60,7 @@ export default function Profile() {
         success : <b>Add Successfully...!</b>,
         error :() => <b>Applicant not add</b>
       });
-    navigate('/applicant');
+    navigate('/employee');
  
   }
 

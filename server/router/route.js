@@ -28,7 +28,7 @@ router.route('/resetPassword').put(controller.verifyUser, controller.resetPasswo
 
 
 /** Applicant routes */
-router.route('/applicant').post(applicantController.createApplicant); // create an applicant
+router.route('/employee').post(applicantController.createApplicant); // create an applicant
 router.route('/all-applicants').get(applicantController.getAllApplicant); // get appplicants
 router.route('/applicant/:id').get(applicantController.getApplicantById); //get an applicantdata
 router.route('/update/applicant').put(applicantController.updateApplicant); // update uplicant

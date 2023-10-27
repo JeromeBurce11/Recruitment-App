@@ -9,10 +9,10 @@ import Register from './components/Register';
 import Profile from './components/Profile';
 import Recovery from './components/Recovery';
 import Reset from './components/Reset';
-import Applicant  from './components/Applicant';
+import Employee  from './pages/Employee';
 import AddApplicant from  './components/AddApplicant';
 import EditApplicant from './components/EditApplicant';
-
+import {extendTheme, ChakraProvider } from '@chakra-ui/react'
 
 /** auth middleware */
 import { AuthorizeUser, ProtectRoute } from './middleware/auth'
@@ -24,8 +24,8 @@ const router = createBrowserRouter([
         element : <Username></Username>
     },
     {
-        path : '/applicant',
-        element : <Applicant></Applicant>
+        path : '/employee',
+        element : <Employee></Employee>
     },
     {
         path : '/add-applicant',
@@ -57,11 +57,21 @@ const router = createBrowserRouter([
     }
    
 ])
-
+const colors = {
+    brand: {
+      900: '#1a365d',
+      800: '#153e75',
+      700: '#2a69ac',
+    },
+  }
+  
+  const theme = extendTheme({ colors })
 export default function App() {
   return (
     <main>
+        <ChakraProvider theme={theme}>
         <RouterProvider router={router}></RouterProvider>
+        </ChakraProvider>
     </main>
   )
 }
