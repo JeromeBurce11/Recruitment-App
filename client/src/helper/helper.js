@@ -113,7 +113,7 @@ export async function resetPassword({ username, password }){
 
 export async function getAllApplicant(){
     try {
-        const { data, status } = await axios.get('/api/all-applicants' );
+        const { data, status } = await axios.get('/api/all-employees' );
 
         return Promise.resolve({ data, status})
     } catch (error) {
@@ -124,7 +124,7 @@ export async function getAllApplicant(){
 export async function addApplicant(details){
     try {
 
-        const { data, status } = await axios.post('/api/applicant', details );
+        const { data, status } = await axios.post('/api/employee', details );
 
         return Promise.resolve({ data, status})
     } catch (error) {
@@ -134,7 +134,7 @@ export async function addApplicant(details){
 
 export async function getApplicantDetailsById({ id }){
     try {
-        const { data } = await axios.get(`/api/applicant/${id}`);
+        const { data } = await axios.get(`/api/employee/${id}`);
         return { data };
     } catch (error) {
         return { error : "Password doesn't Match...!"}
@@ -144,8 +144,8 @@ export async function getApplicantDetailsById({ id }){
 export async function updateApplicant(details){
     try {
 
-        const { data, status } = await axios.put('/api/update/applicant', details );
-        console.log("HELPPERRR Data getapplicant id :", data);
+        const { data, status } = await axios.put('/api/update/employee', details );
+        console.log("HELPPERRR Data get employee id :", data);
 
         return Promise.resolve({ data, status})
     } catch (error) {
@@ -157,7 +157,7 @@ export async function updateApplicant(details){
 export async function deleteApplicant({id}){
     try {
         console.log("ID : ",id);
-        const { data, status } = await axios.delete(`/api/delete/applicant/${id}`);
+        const { data, status } = await axios.delete(`/api/delete/employee/${id}`);
         console.log("DATA DELETE :", data);
 
         return Promise.resolve({ data, status})
