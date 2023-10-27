@@ -8,6 +8,9 @@ client/.env
 server/.env
 /.pnp
 .pnp.js
+node_modules
+node_modules/*
+/node_modules
 
 # testing
 /coverage
