@@ -3,14 +3,13 @@ import { getAllApplicant, deleteApplicant } from "../helper/helper";
 import { useNavigate } from "react-router-dom";
 import Modal from "@mui/material/Modal";
 import Typography from "@mui/material/Typography";
-import Divider from '@mui/material/Divider';
 import toast from "react-hot-toast";
 import IconButton from '@mui/material/IconButton';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import CameraCapture from "../components/camera_capture/camera";
 import {
   Tabs, TabList, TabPanels, Tab, TabPanel, Badge, Button, Table, Image,
-  Card, CardHeader, CardBody, CardFooter, Stack, StackDivider, Text, Box, Heading, Grid, GridItem,
+  Card, CardHeader, CardBody, Text, Box, Heading, Grid, GridItem,
   Thead,
   Tbody,
   Tr,
@@ -110,7 +109,6 @@ export default function BasicTable() {
             </CardHeader>
 
             <CardBody marginBottom={400}>
-              <Stack divider={<StackDivider />} spacing='4'>
                 <Box>
 
                   <Heading size='sm' textTransform='uppercase'>
@@ -146,7 +144,6 @@ export default function BasicTable() {
                 </Box>
 
 
-              </Stack>
             </CardBody>
           </Card></GridItem>
         {/* <GridItem colSpan={2} bg='papayawhip' />
@@ -214,7 +211,6 @@ export default function BasicTable() {
                           <Text color={grey[500]} as='b'>Nickname</Text>
                           <Text>Jerome Burce</Text>
                           <Box padding='5'>
-                            <Divider />
                           </Box>
                           <Grid templateColumns='repeat(5, 1fr)' gap={6}>
                             <GridItem w='100%' h='10' >
@@ -242,7 +238,6 @@ export default function BasicTable() {
                             <GridItem w='100%' h='10'  ></GridItem>
                           </Grid>
                           <Box padding='5'>
-                            <Divider />
                           </Box>
 
                         </CardBody>

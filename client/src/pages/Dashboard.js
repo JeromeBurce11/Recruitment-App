@@ -2,11 +2,11 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Attendance from './attendance/Attendance';
 import Employee from '../pages/Employee';
-import {Tabs, TabList, TabPanels, Tab, TabPanel} from '@chakra-ui/react'
+import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
 
 export default function BasicTable() {
   const navigate = useNavigate();
- 
+
   function userLogout() {
     localStorage.removeItem('token');
     navigate('/')
@@ -31,10 +31,10 @@ export default function BasicTable() {
           <TabPanel>
           </TabPanel>
           <TabPanel>
-           <Employee/>
+            <Employee />
           </TabPanel>
           <TabPanel>
-            <Attendance/>
+            <Attendance />
           </TabPanel>
         </TabPanels>
       </Tabs>
