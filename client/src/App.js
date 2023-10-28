@@ -3,13 +3,17 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 
 /** import all components */
+import Attendance  from './pages/attendance/Attendance';
+import Dashboard from './pages/Dashboard';
+import Employee  from './pages/Employee';
+
 import Username from './components/Username';
 import Password from './components/Password';
 import Register from './components/Register';
 import Profile from './components/Profile';
 import Recovery from './components/Recovery';
 import Reset from './components/Reset';
-import Employee  from './pages/Employee';
+
 import AddApplicant from  './components/AddApplicant';
 import EditApplicant from './components/EditApplicant';
 import {extendTheme, ChakraProvider } from '@chakra-ui/react'
@@ -24,8 +28,16 @@ const router = createBrowserRouter([
         element : <Username></Username>
     },
     {
+        path : '/dashboard',
+        element : <Dashboard></Dashboard>
+    },
+    {
         path : '/employee',
         element : <Employee></Employee>
+    },
+    {
+        path : '/attendance',
+        element : <Attendance></Attendance>
     },
     {
         path : '/add-applicant',
